@@ -8,9 +8,6 @@ const appRoutes: Routes = [
 ];
 
 @NgModule({
-  declarations: [
-    HomepageComponent
-  ],
   imports: [
     RouterModule.forRoot(appRoutes)
   ],
