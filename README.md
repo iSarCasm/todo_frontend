@@ -1,3 +1,6 @@
+[![Code Climate](https://codeclimate.com/github/iSarCasm/todo_frontend/badges/gpa.svg)](https://codeclimate.com/github/iSarCasm/todo_frontend)
+[![Issue Count](https://codeclimate.com/github/iSarCasm/todo_frontend/badges/issue_count.svg)](https://codeclimate.com/github/iSarCasm/todo_frontend)
+
 # TodoFrontend
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.3.
