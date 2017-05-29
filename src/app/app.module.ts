@@ -15,6 +15,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/auth-guard.service';
 import { ProjectComponent } from './project/project.component';
+import { TaskComponent } from './task/task.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ProjectComponent } from './project/project.component';
     StatsComponent,
     AuthComponent,
     DashboardComponent,
-    ProjectComponent
+    ProjectComponent,
+    TaskComponent
   ],
   imports: [
     BrowserModule,

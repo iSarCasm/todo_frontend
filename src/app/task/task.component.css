@@ -1,0 +1,22 @@
+a {
+  color: gray;
+  text-decoration: underline;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.finished p {
+  text-decoration: line-through;
+}
+
+.deadline {
+  color: red;
+}

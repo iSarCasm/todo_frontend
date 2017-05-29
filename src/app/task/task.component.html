@@ -1,0 +1,32 @@
+<div class="task p-2" [ngClass]="{'finished': task.finished}">
+  <div class="row">
+    <div class="col-9 flex">
+      <p class="mb-0">
+        {{ task.name }}
+      </p>
+      <p *ngIf="task.desc" class="mb-0">
+        <small>
+          {{ task.desc }}
+        </small>
+      </p>
+      <p *ngIf="task.deadline" class="mb-0 deadline">
+        <small>
+          {{ task.deadline }}
+        </small>
+      </p>
+    </div>
+    <div class="col-3 text-center">
+      <label class="custom-control custom-checkbox m-0">
+        <input type="checkbox" class="custom-control-input" [(ngModel)]="task.finished">
+        <span class="custom-control-indicator"></span>
+      </label>
+      <p class="mb-0">
+        <small>
+          <a href="">comment</a>
+          <a href="">edit</a>
+          <a href="">delete</a>
+        </small>
+      </p>
+    </div>
+  </div>
+</div>

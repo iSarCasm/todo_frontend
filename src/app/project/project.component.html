@@ -1,10 +1,12 @@
-<div class="container text-left mb-3 mt-3">
+<div class="container text-left mb-5 mt-3">
   <div class="row">
     <div class="col-12">
       <div class="card">
         <div class="card-header">
           <p class="mb-0">
-            {{ project.title }}
+            <strong>
+              {{ project.title }}
+            </strong>
           </p>
           <p class="mb-0">
             <small>
@@ -13,7 +15,13 @@
           </p>
         </div>
         <div class="card-block">
-
+          <div *ngIf="project.tasks.length > 0; then task_list; else no_tasks"></div>
+          <app-task #task_list *ngFor="let task of project.tasks" [task]="task"></app-task>
+          <ng-template #no_tasks>
+            <p class="p-2 m-0">
+              <small><em>No tasks yet.</em></small>
+            </p>
+          </ng-template>
         </div>
       </div>
     </div>
