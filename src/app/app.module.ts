@@ -17,6 +17,7 @@ import { AuthGuard } from './auth/auth-guard.service';
 import { ProjectComponent } from './project/project.component';
 import { TaskComponent } from './task/task.component';
 import { CommentComponent } from './comment/comment.component';
+import { ProjectNewComponent } from './project/project-new/project-new.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { CommentComponent } from './comment/comment.component';
     DashboardComponent,
     ProjectComponent,
     TaskComponent,
-    CommentComponent
+    CommentComponent,
+    ProjectNewComponent
   ],
   imports: [
     BrowserModule,

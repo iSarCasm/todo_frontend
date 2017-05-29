@@ -12,6 +12,7 @@ import { DashboardService } from './dashboard.service';
 })
 export class DashboardComponent implements OnInit {
   projects: Project[];
+  isAddingProject: boolean = false;
 
 
   constructor(
@@ -26,5 +27,13 @@ export class DashboardComponent implements OnInit {
           this.projects = projects;
         }
       )
+  }
+
+  addNewProject() {
+    this.isAddingProject = true;
+  }
+
+  cancelNewProject() {
+    this.isAddingProject = false;
   }
 }

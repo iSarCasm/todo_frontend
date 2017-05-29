@@ -2,11 +2,11 @@ import { Task } from '../task/task.model';
 
 export class Project {
   constructor(
-    public id: number,
-    public title: string,
+    public id?: number,
+    public title?: string,
     public desc?: string,
-    public in_active: boolean = true,
-    public tasks: Task[] = [],
+    public in_active?: boolean,
+    public tasks?: Task[],
   ) {}
 
   getTask(id: number) {
@@ -15,5 +15,9 @@ export class Project {
         return task;
       }
     }
+  }
+
+  hasTasks() {
+    return this.tasks && this.tasks.length > 0;
   }
 }

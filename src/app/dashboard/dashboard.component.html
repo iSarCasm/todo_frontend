@@ -1,5 +1,10 @@
 <div class="container mt-3 text-center">
   <h2>Welcome to your personal TODO-List</h2>
   <br>
+  <app-project-new *ngIf="isAddingProject; else open_new_project" (canceled)="cancelNewProject()"></app-project-new>
+  <ng-template #open_new_project>
+    <button class="btn btn-primary" (click)="addNewProject()">Add project</button>
+  </ng-template>
+  <br>
   <app-project *ngFor="let project of projects"[project]="project"></app-project>
 </div>

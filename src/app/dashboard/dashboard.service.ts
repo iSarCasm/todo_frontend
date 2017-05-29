@@ -23,22 +23,14 @@ export class DashboardService {
     return task == this.openedComments;
   }
 
-  getProject(id: number) {
-    for(let project of this.projects) {
-      if (project.id === id) {
-        return project;
-      }
-    }
+  getProjects(): Project[] {
+    return this.projects;
   }
 
-  getTask(id: number) {
-    for(let project of this.projects) {
-      for(let task of project.tasks) {
-        if(task.id === id) {
-          return task;
-        }
-      }
-    }
+  createProject(title: string, desc: string) {
+    this.projects.unshift(
+      new Project(undefined, title, desc)
+    );
   }
 
   deleteComment(comment: Comment) {
@@ -56,7 +48,21 @@ export class DashboardService {
     this.projectsUpdated.emit(this.projects);
   }
 
-  getProjects(): Project[] {
-    return this.projects;
+  private getProject(id: number) {
+    for(let project of this.projects) {
+      if (project.id === id) {
+        return project;
+      }
+    }
+  }
+
+  private getTask(id: number) {
+    for(let project of this.projects) {
+      for(let task of project.tasks) {
+        if(task.id === id) {
+          return task;
+        }
+      }
+    }
   }
 }

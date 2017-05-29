@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-md-8 push-md-2">
+      <form>
+        <div class="form-group">
+          <input
+            type="text" class="form-control"
+            id="title" name="title"
+            required maxlength="80"
+            placeholder="Project Title"
+            [(ngModel)]="title"
+            #input_title="ngModel">
+        </div>
+        <div class="form-group">
+          <textarea
+            type="text" class="form-control"
+            maxlength="300"
+            id="desc" name="desc"
+            placeholder="Short description (optional)"
+            [(ngModel)]="desc"
+            #input_desc="ngModel">
+        </textarea>
+        </div>
+        <div *ngIf="input_title.errors && (input_title.dirty || input_title.touched)" class="alert alert-danger">
+          <div [hidden]="!input_title.errors.required">
+            Title is required
+          </div>
+          <div [hidden]="!input_title.errors.maxlength">
+            Title cannot be more than 80 characters long.
+          </div>
+        </div>
+        <div *ngIf="input_desc.errors && (input_desc.dirty || input_desc.touched)" class="alert alert-danger">
+          <div [hidden]="!input_desc.errors.maxlength">
+            Description cannot be more than 300 characters long.
+          </div>
+        </div>
+        <button class="btn btn-primary" (click)="addProject()">Add project</button>
+        <button class="btn btn-outline-danger" (click)="cancel()">Cancel</button>
+      </form>
+    </div>
+  </div>
+</div>

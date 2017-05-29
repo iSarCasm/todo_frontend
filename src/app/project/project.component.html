@@ -8,14 +8,12 @@
               {{ project.title }}
             </strong>
           </p>
-          <p class="mb-0">
-            <small>
-              {{ project.desc }}
-            </small>
+          <p class="mb-0 desc">
+            {{ project.desc }}
           </p>
         </div>
         <div class="card-block">
-          <div *ngIf="project.tasks.length > 0; then task_list; else no_tasks"></div>
+          <div *ngIf="project.hasTasks(); then task_list; else no_tasks"></div>
           <app-task #task_list *ngFor="let task of project.tasks" [task]="task"></app-task>
           <ng-template #no_tasks>
             <p class="p-2 m-0">
