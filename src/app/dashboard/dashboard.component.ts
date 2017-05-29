@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Project } from '../project/project.model';
+import { Task } from '../task/task.model';
 import { DashboardService } from './dashboard.service';
 
 @Component({
@@ -12,6 +13,7 @@ import { DashboardService } from './dashboard.service';
 export class DashboardComponent implements OnInit {
   projects: Project[];
 
+
   constructor(
     private dashboardService: DashboardService
   ) { }
@@ -19,5 +21,4 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     this.projects = this.dashboardService.getProjects();
   }
-
 }

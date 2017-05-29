@@ -1,3 +1,5 @@
+import  { Comment } from '../comment/comment.model';
+
 export class Task {
   constructor(
     public id: number,
@@ -7,5 +9,6 @@ export class Task {
     public position: number,
     public desc?: string,
     public deadline?: string,
+    public comments: Comment[] = []
   ) {}
 }

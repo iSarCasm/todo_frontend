@@ -1,0 +1,26 @@
+<div class="container comment pb-2 pt-2">
+  <div class="row">
+    <div class="col-2 col-lg-1 col-sm-2">
+      <img src="{{ comment.user_avatar }}" alt="Avatar">
+    </div>
+    <div class="col-10 col-lg-11 col-sm-10">
+      <p class="name mb-0">
+        <strong>
+          {{ comment.user_name }}
+        </strong>
+      </p>
+      <p class="content mb-0">
+        {{ comment.content }}
+      </p>
+      <ol *ngIf="comment.attachments && comment.attachments.length > 0">
+        <li *ngFor="let attachment of comment.attachments">
+          <a href="{{ attachment }}" target="_blank"> {{ attachment }} </a>
+        </li>
+      </ol>
+
+      <small>
+        <span class="link">Delete</span>
+      </small>
+    </div>
+  </div>
+</div>

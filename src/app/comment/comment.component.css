@@ -1,0 +1,18 @@
+.comment {
+  /*background-color: #eee;*/
+  /*border-left: 1px solid #aaa;*/
+}
+
+img {
+  max-width: 100%;
+  border-radius: 100%;
+}
+
+p {
+  font-size: 12px;
+}
+
+ol {
+  font-size: 10px;
+  margin-bottom: 0;
+}

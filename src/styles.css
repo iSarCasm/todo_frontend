@@ -2,3 +2,23 @@
 app-task:nth-child(even) .task {
   background-color: #f0f0f0;
 }
+
+app-task:nth-child(odd) .comment {
+  background-color: #f0f0f0;
+}
+
+app-task:nth-child(even) .comment {
+  background-color: white;
+}
+
+
+
+span.link {
+  color: gray;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+span.link:hover {
+  text-decoration: none;
+}

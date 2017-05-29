@@ -22,11 +22,16 @@
       </label>
       <p class="mb-0">
         <small>
-          <a href="">comment</a>
-          <a href="">edit</a>
-          <a href="">delete</a>
+          <span class="link" (click)="toggleComments()">comments ({{ task.comments.length }})</span>
+          <span class="link">edit</span>
+          <span class="link">delete</span>
         </small>
       </p>
+    </div>
+  </div>
+  <div *ngIf="isActiveComments()" class="row comments pt-1">
+    <div class="col-11 push-1">
+      <app-comment *ngFor="let comment of task.comments" [comment]="comment"></app-comment>
     </div>
   </div>
 </div>

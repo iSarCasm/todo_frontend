@@ -1,13 +1,27 @@
 import { Project } from '../project/project.model';
 import { Task } from '../task/task.model';
+import { Comment } from '../comment/comment.model';
 
 export const PROJECTS: Project[] = [
   new Project(
     1, 'Ruby on Rails', 'Need to learn Ruby on Rails.', true,
     [
-      new Task(1, 1, 'Watch latest RubyConf2017', false, 1, 'has to be somewhere on youtube'),
-      new Task(2, 1, 'Practice with Ruby 2.4', false, 2, '', '01-06-2017'),
-      new Task(3, 1, 'Checkout newest Ruby\Rails digest', false, 3, 'dou.ua', '01-06-2017'),
+      new Task(
+        1, 1, 'Watch latest RubyConf2017', false, 1, 'has to be somewhere on youtube', '',
+        [
+          new Comment(1, 1, '@tenderlove', '/assets/mock/user1.jpeg', 'Who wants my stickers?'),
+          new Comment(2, 1, 'Cat', '/assets/mock/user2.jpg', 'Meeeow!')
+        ]
+      ),
+      new Task(
+        2, 1, 'Practice with Ruby 2.4', false, 2, '', '01-06-2017',
+        [
+            new Comment(1, 1, '@tenderlove', '/assets/mock/user1.jpeg', 'This is how I am doing changes to ruby/core', ['/assets/mock/attachment.jpg']),
+        ]
+      ),
+      new Task(
+        3, 1, 'Checkout newest Ruby\\Rails digest', false, 3, 'dou.ua', '01-06-2017'
+      ),
     ]
   ),
   new Project(
@@ -25,7 +39,7 @@ export const PROJECTS: Project[] = [
   new Project(
     7, 'Home', '', true,
     [
-      new Task(8, 7, 'Do cleaning', false, 1, 'including windows!!!'),
+      new Task(8, 7, 'Do cleaning', false, 1, 'including windows (OS)!!!'),
       new Task(9, 7, 'Wash dishes', false, 2)
     ]
   )
