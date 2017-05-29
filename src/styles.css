@@ -22,3 +22,7 @@ span.link {
 span.link:hover {
   text-decoration: none;
 }
+
+button {
+  cursor: pointer;
+}
