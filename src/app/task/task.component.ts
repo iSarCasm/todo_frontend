@@ -26,4 +26,7 @@ export class TaskComponent implements OnInit {
     return this.dashboardService.isActiveComments(this.task);
   }
 
+  deleteTask() {
+    this.dashboardService.deleteTask(this.task);
+  }
 }

@@ -43,6 +43,11 @@ export class DashboardService {
     task.comments = task.comments.filter(item => item !== comment);
   }
 
+  deleteTask(task: Task) {
+    let project = this.getProject(task.project_id);
+    project.tasks = project.tasks.filter(item => item !== task);
+  }
+
   getProjects(): Project[] {
     return this.projects;
   }
