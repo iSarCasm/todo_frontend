@@ -16,7 +16,7 @@ export const PROJECTS: Project[] = [
       new Task(
         2, 1, 'Practice with Ruby 2.4', false, 2, '', '01-06-2017',
         [
-            new Comment(1, 1, '@tenderlove', '/assets/mock/user1.jpeg', 'This is how I am doing changes to ruby/core', ['/assets/mock/attachment.jpg']),
+            new Comment(3, 2, '@tenderlove', '/assets/mock/user1.jpeg', 'This is how I am doing changes to ruby/core', ['/assets/mock/attachment.jpg']),
         ]
       ),
       new Task(

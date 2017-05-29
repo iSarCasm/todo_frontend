@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 import { Comment } from './comment.model';
+import { DashboardService } from '../dashboard/dashboard.service';
 
 @Component({
   selector: 'app-comment',
@@ -11,9 +12,14 @@ import { Comment } from './comment.model';
 export class CommentComponent implements OnInit {
   @Input() comment: Comment;
 
-  constructor() { }
+  constructor(
+    private dashboardService: DashboardService
+  ) { }
 
   ngOnInit() {
   }
 
+  deleteComment() {
+    this.dashboardService.deleteComment(this.comment);
+  }
 }

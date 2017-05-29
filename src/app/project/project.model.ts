@@ -8,4 +8,12 @@ export class Project {
     public in_active: boolean = true,
     public tasks: Task[] = [],
   ) {}
+
+  getTask(id: number) {
+    for(let task of this.tasks) {
+      if (task.id === id) {
+        return task;
+      }
+    }
+  }
 }
