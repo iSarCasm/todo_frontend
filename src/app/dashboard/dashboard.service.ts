@@ -1,3 +1,5 @@
+import { EventEmitter} from '@angular/core';
+
 import { Project } from '../project/project.model';
 import { PROJECTS } from './mock-projects';
 import { Task } from '../task/task.model';
@@ -5,6 +7,7 @@ import { Comment} from '../comment/comment.model';
 
 export class DashboardService {
   private projects: Project[] = PROJECTS;
+  projectsUpdated = new EventEmitter<Project[]>();
 
   private openedComments: Task;
 
@@ -46,6 +49,11 @@ export class DashboardService {
   deleteTask(task: Task) {
     let project = this.getProject(task.project_id);
     project.tasks = project.tasks.filter(item => item !== task);
+  }
+
+  deleteProject(project: Project) {
+    this.projects = this.projects.filter(item => item !== project);
+    this.projectsUpdated.emit(this.projects);
   }
 
   getProjects(): Project[] {
