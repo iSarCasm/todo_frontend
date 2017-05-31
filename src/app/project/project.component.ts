@@ -1,7 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
 
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
 import { Project } from './project.model';
 import { DashboardService } from '../dashboard/dashboard.service';
+import { TaskNewComponent } from '../task/task-new/task-new.component';
 
 @Component({
   selector: 'app-project',
@@ -12,10 +15,16 @@ export class ProjectComponent implements OnInit {
   @Input() project: Project;
 
   constructor(
-    private dashboardService: DashboardService
+    private dashboardService: DashboardService,
+    private modalService: NgbModal
   ) { }
 
   ngOnInit() {
+  }
+
+  newTask() {
+    const taskModalRef = this.modalService.open(TaskNewComponent);
+    taskModalRef.componentInstance.project = this.project;
   }
 
   deleteProject() {

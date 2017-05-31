@@ -33,6 +33,12 @@ export class DashboardService {
     );
   }
 
+  createTask(project: Project, name: string, desc?: string, date?: string) {
+    this.getProject(project.id).tasks.unshift(
+      new Task(undefined, project.id, name, false, 0, desc, date)
+    );
+  }
+
   deleteComment(comment: Comment) {
     let task = this.getTask(comment.task_id);
     task.comments = task.comments.filter(item => item !== comment);

@@ -11,13 +11,15 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { StatsComponent } from './stats/stats.component';
 import { AuthComponent } from './auth/auth.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-
+import { DashboardService } from './dashboard/dashboard.service';
+import { TaskService } from './task/task.service';
 import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/auth-guard.service';
 import { ProjectComponent } from './project/project.component';
 import { TaskComponent } from './task/task.component';
 import { CommentComponent } from './comment/comment.component';
 import { ProjectNewComponent } from './project/project-new/project-new.component';
+import { TaskNewComponent } from './task/task-new/task-new.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import { ProjectNewComponent } from './project/project-new/project-new.component
     ProjectComponent,
     TaskComponent,
     CommentComponent,
-    ProjectNewComponent
+    ProjectNewComponent,
+    TaskNewComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +41,8 @@ import { ProjectNewComponent } from './project/project-new/project-new.component
     NgbModule.forRoot(),
     AppRoutingModule
   ],
-  providers: [AuthService, AuthGuard],
+  providers: [AuthService, AuthGuard, DashboardService, TaskService],
+  entryComponents: [TaskNewComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

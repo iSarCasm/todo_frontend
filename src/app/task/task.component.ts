@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 
 import { Task } from './task.model';
 import { DashboardService } from '../dashboard/dashboard.service';
+import { TaskService } from './task.service';
 
 @Component({
   selector: 'app-task',
@@ -12,10 +13,15 @@ export class TaskComponent implements OnInit {
   @Input() task: Task;
 
   constructor(
-    private dashboardService: DashboardService
+    private dashboardService: DashboardService,
+    private taskService: TaskService
   ) { }
 
   ngOnInit() {
+  }
+
+  parsedTaskDeadline() {
+    return this.taskService.prettyDate(this.task.deadline);
   }
 
   toggleComments() {
