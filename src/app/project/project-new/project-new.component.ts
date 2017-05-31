@@ -8,8 +8,7 @@ import { DashboardService } from '../../dashboard/dashboard.service';
   styleUrls: ['./project-new.component.css']
 })
 export class ProjectNewComponent implements OnInit {
-  @Output() canceled = new EventEmitter<boolean>();
-
+  isAddingProject: boolean = false;
   title: string;
   desc: string;
 
@@ -20,14 +19,18 @@ export class ProjectNewComponent implements OnInit {
   ngOnInit() {
   }
 
-  cancel() {
-    this.canceled.emit(false);
+  editNewProject() {
+    this.isAddingProject = true;
+  }
+
+  cancelEditing() {
+    this.isAddingProject = false;
     this.title = '';
     this.desc = '';
   }
 
-  addProject() {
+  addNewProject() {
     this.dashboardService.createProject(this.title, this.desc);
-    this.cancel();
+    this.cancelEditing();
   }
 }

@@ -1,7 +1,7 @@
-<div class="container">
+<div class="container" *ngIf="isAddingProject; else open_new_project">
   <div class="row">
     <div class="col-12 col-md-8 push-md-2">
-      <form>
+      <form (ngSubmit)="addNewProject()" #projectForm="ngForm">
         <div class="form-group">
           <input
             type="text" class="form-control"
@@ -21,7 +21,7 @@
             #input_desc="ngModel">
         </textarea>
         </div>
-        <div *ngIf="input_title.errors && (input_title.dirty || input_title.touched)" class="alert alert-danger">
+        <div *ngIf="input_title.errors && (input_title.dirty || input_title.touched)" class="alert alert-danger p-1">
           <div [hidden]="!input_title.errors.required">
             Title is required
           </div>
@@ -29,14 +29,19 @@
             Title cannot be more than 80 characters long.
           </div>
         </div>
-        <div *ngIf="input_desc.errors && (input_desc.dirty || input_desc.touched)" class="alert alert-danger">
+        <div *ngIf="input_desc.errors && (input_desc.dirty || input_desc.touched)" class="alert alert-danger p-1">
           <div [hidden]="!input_desc.errors.maxlength">
             Description cannot be more than 300 characters long.
           </div>
         </div>
-        <button class="btn btn-primary" (click)="addProject()">Add project</button>
-        <button class="btn btn-outline-danger" (click)="cancel()">Cancel</button>
+        <button
+          class="btn btn-primary"
+          [disabled]="!projectForm.form.valid">Add project</button>
+        <button class="btn btn-outline-danger" (click)="cancelEditing()">Cancel</button>
       </form>
     </div>
   </div>
 </div>
+<ng-template #open_new_project>
+  <button class="btn btn-primary" (click)="editNewProject()">Add project</button>
+</ng-template>
