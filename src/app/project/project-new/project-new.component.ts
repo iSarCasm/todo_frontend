@@ -15,7 +15,7 @@ export class ProjectNewComponent implements OnInit {
 
   constructor(
     private dashboardService: DashboardService,
-    private modalService: NgbActiveModal
+    private activeModal: NgbActiveModal
   ) { }
 
   ngOnInit() {
@@ -23,6 +23,6 @@ export class ProjectNewComponent implements OnInit {
 
   addNewProject() {
     this.dashboardService.createProject(this.title, this.desc);
-    this.modalService.close();
+    this.activeModal.close();
   }
 }

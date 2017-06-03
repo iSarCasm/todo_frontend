@@ -1,7 +1,7 @@
 <div class="container mt-3 text-center">
   <h2>Welcome to your personal TODO-List</h2>
-  <br>
-  <button class="btn btn-primary btn-lg" (click)="newProject()">Add project</button>
-  <br>
+  <div class="mt-4 mb-4">
+    <button class="btn btn-primary btn-lg" (click)="newProject()">Add project</button>
+  </div>
   <app-project *ngFor="let project of projects"[project]="project"></app-project>
 </div>

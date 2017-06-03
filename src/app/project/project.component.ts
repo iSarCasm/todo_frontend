@@ -5,6 +5,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Project } from './project.model';
 import { DashboardService } from '../dashboard/dashboard.service';
 import { TaskNewComponent } from '../task/task-new/task-new.component';
+import { ProjectEditComponent } from './project-edit/project-edit.component';
 
 @Component({
   selector: 'app-project',
@@ -33,6 +34,11 @@ export class ProjectComponent implements OnInit {
 
   activate() {
     this.dashboardService.projectActivate(this.project);
+  }
+
+  editProject() {
+    const taskModalRef = this.modalService.open(ProjectEditComponent);
+    taskModalRef.componentInstance.project = Object.assign({}, this.project);
   }
 
   deleteProject() {

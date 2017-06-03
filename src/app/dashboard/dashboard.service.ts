@@ -31,6 +31,12 @@ export class DashboardService {
     );
   }
 
+  updateProject(updated_project: Project) {
+    let project = this.getProject(updated_project.id);
+    project.title = updated_project.title;
+    project.desc = updated_project.desc;
+  }
+
   projectActivate(project: Project) {
     project.in_active = true;
   }
