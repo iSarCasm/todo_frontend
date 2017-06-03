@@ -7,9 +7,15 @@ import { Comment} from '../comment/comment.model';
 import { USER } from './mock-user';
 
 export class DashboardService {
-  public user: User = USER;
-  private projects: Project[] = this.user.projects;
+  public user: User;
+  private projects: Project[];
   projectsUpdated = new EventEmitter<Project[]>();
+
+  queryUser() {
+    this.user = USER;
+    this.projects = this.user.projects;
+    this.projectsUpdated.emit(this.projects);
+  }
 
   getProjects(): Project[] {
     return this.projects;

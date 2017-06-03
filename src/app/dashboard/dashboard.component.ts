@@ -21,13 +21,13 @@ export class DashboardComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.projects = this.dashboardService.getProjects();
     this.dashboardService.projectsUpdated
       .subscribe(
         (projects: Project[]) => {
           this.projects = projects;
         }
       )
+    this.dashboardService.queryUser();
   }
 
   newProject() {
