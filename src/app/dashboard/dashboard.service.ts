@@ -46,6 +46,11 @@ export class DashboardService {
     task.deadline = updated_task.deadline;
   }
 
+  updateComment(updated_comment: Comment) {
+    let comment = this.getComment(updated_comment.id);
+    comment.content = updated_comment.content;
+  }
+
   projectActivate(project: Project) {
     project.in_active = true;
   }
@@ -77,7 +82,7 @@ export class DashboardService {
     this.projectsUpdated.emit(this.projects);
   }
 
-  private getProject(id: number) {
+  getProject(id: number) : Project {
     for(let project of this.projects) {
       if (project.id === id) {
         return project;
@@ -85,11 +90,23 @@ export class DashboardService {
     }
   }
 
-  private getTask(id: number) {
+  getTask(id: number) : Task {
     for(let project of this.projects) {
       for(let task of project.tasks) {
         if(task.id === id) {
           return task;
+        }
+      }
+    }
+  }
+
+  getComment(id: number) : Comment {
+    for(let project of this.projects) {
+      for(let task of project.tasks) {
+        for(let comment of task.comments) {
+          if(comment.id === id) {
+            return comment;
+          }
         }
       }
     }

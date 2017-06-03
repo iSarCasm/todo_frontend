@@ -1,0 +1,26 @@
+<div class="modal-header">
+  <div>
+    <h4 class="modal-title">Edit comment</h4>
+  </div>
+  <button type="button" class="close" aria-label="Close" (click)="close()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form #commentForm="ngForm">
+    <div class="form-group">
+      <textarea
+        type="text" class="form-control" required
+        id="content" name="content"
+        [(ngModel)]="comment.content"
+        #input_content="ngModel">
+      </textarea>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button
+    class="btn btn-primary"
+    [disabled]="!commentForm.form.valid" (click)="updateComment()">Update comment</button>
+  <button type="button" class="btn btn-secondary" (click)="close()">Close</button>
+</div>

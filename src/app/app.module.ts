@@ -23,6 +23,7 @@ import { TaskNewComponent } from './task/task-new/task-new.component';
 import { TaskViewComponent } from './task/task-view/task-view.component';
 import { ProjectEditComponent } from './project/project-edit/project-edit.component';
 import { TaskEditComponent } from './task/task-edit/task-edit.component';
+import { CommentEditComponent } from './comment/comment-edit/comment-edit.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { TaskEditComponent } from './task/task-edit/task-edit.component';
     TaskNewComponent,
     TaskViewComponent,
     ProjectEditComponent,
-    TaskEditComponent
+    TaskEditComponent,
+    CommentEditComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +55,8 @@ import { TaskEditComponent } from './task/task-edit/task-edit.component';
     ProjectEditComponent,
     TaskNewComponent,
     TaskEditComponent,
-    TaskViewComponent
+    TaskViewComponent,
+    CommentEditComponent
   ],
   bootstrap: [AppComponent]
 })
