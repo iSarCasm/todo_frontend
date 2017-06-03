@@ -20,6 +20,7 @@ import { TaskComponent } from './task/task.component';
 import { CommentComponent } from './comment/comment.component';
 import { ProjectNewComponent } from './project/project-new/project-new.component';
 import { TaskNewComponent } from './task/task-new/task-new.component';
+import { TaskViewComponent } from './task/task-view/task-view.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { TaskNewComponent } from './task/task-new/task-new.component';
     TaskComponent,
     CommentComponent,
     ProjectNewComponent,
-    TaskNewComponent
+    TaskNewComponent,
+    TaskViewComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +44,7 @@ import { TaskNewComponent } from './task/task-new/task-new.component';
     AppRoutingModule
   ],
   providers: [AuthService, AuthGuard, DashboardService, TaskService],
-  entryComponents: [TaskNewComponent],
+  entryComponents: [TaskNewComponent, TaskViewComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

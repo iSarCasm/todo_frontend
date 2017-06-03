@@ -1,5 +1,8 @@
 <div class="modal-header">
-  <h4 class="modal-title">Hi there!</h4>
+  <div>
+    <h4 class="modal-title">Add a new task</h4>
+    <small> Project: '{{ project.title }}'</small>
+  </div>
   <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
     <span aria-hidden="true">&times;</span>
   </button>
@@ -11,7 +14,7 @@
         type="text" class="form-control"
         id="name" name="name"
         required maxlength="80"
-        placeholder="task name"
+        placeholder="name*"
         [(ngModel)]="name"
         #input_name="ngModel">
     </div>
@@ -20,7 +23,7 @@
         type="text" class="form-control"
         maxlength="300"
         id="desc" name="desc"
-        placeholder="short description (optional)"
+        placeholder="short description"
         [(ngModel)]="desc"
         #input_desc="ngModel">
       </textarea>
