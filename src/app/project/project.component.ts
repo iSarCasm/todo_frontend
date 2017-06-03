@@ -27,6 +27,14 @@ export class ProjectComponent implements OnInit {
     taskModalRef.componentInstance.project = this.project;
   }
 
+  archive() {
+    this.dashboardService.projectArchive(this.project);
+  }
+
+  activate() {
+    this.dashboardService.projectActivate(this.project);
+  }
+
   deleteProject() {
     this.dashboardService.deleteProject(this.project);
   }

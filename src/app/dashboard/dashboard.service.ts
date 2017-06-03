@@ -31,6 +31,14 @@ export class DashboardService {
     );
   }
 
+  projectActivate(project: Project) {
+    project.in_active = true;
+  }
+
+  projectArchive(project: Project) {
+    project.in_active = false;
+  }
+
   taskFinish(task: Task) {
     task.finished = true;
   }

@@ -23,9 +23,14 @@
 
           <div class="controls">
             <button class="btn btn-sm btn-outline-success" (click)="newTask()">Add new task</button>
-            <button class="btn btn-sm btn-secondary">Edit project</button>
-            <button class="btn btn-sm btn-secondary">Archive project</button>
-            <button class="btn btn-sm btn-secondary" (click)="deleteProject()">Delete project</button>
+            <button class="btn btn-sm btn-secondary">Edit</button>
+
+            <button *ngIf="project.in_active; else activateButton" class="btn btn-sm btn-secondary" (click)="archive()">Archive</button>
+            <ng-template #activateButton>
+              <button class="btn btn-sm btn-secondary" (click)="activate()">Activate</button>
+            </ng-template>
+
+            <button class="btn btn-sm btn-secondary" (click)="deleteProject()">Delete</button>
           </div>
         </div>
       </div>
