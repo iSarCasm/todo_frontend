@@ -1,8 +1,8 @@
 import { Stats } from './stats.model';
 
 export const STATS: Stats = {
-  users_count: 13,
-  projects_count: 29,
-  tasks_count: 113,
-  comments_count: 33
+  users: 13,
+  projects: 29,
+  tasks: 113,
+  comments: 33
 };

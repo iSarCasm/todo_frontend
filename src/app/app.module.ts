@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+import { ServerApiService } from './server-api.service';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomepageComponent } from './homepage/homepage.component';
@@ -49,7 +50,7 @@ import { CommentEditComponent } from './comment/comment-edit/comment-edit.compon
     NgbModule.forRoot(),
     AppRoutingModule
   ],
-  providers: [AuthService, AuthGuard, DashboardService, TaskService],
+  providers: [ServerApiService, AuthService, AuthGuard, DashboardService, TaskService],
   entryComponents: [
     ProjectNewComponent,
     ProjectEditComponent,

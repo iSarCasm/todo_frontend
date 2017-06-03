@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Response } from '@angular/http';
 
-import { STATS } from './mock-stats';
+import { Stats } from './stats.model';
+import { ServerApiService } from '../server-api.service';
 
 @Component({
   selector: 'app-stats',
@@ -8,11 +10,18 @@ import { STATS } from './mock-stats';
   styleUrls: ['./stats.component.css']
 })
 export class StatsComponent implements OnInit {
-  stats = STATS;
+  stats: Stats;
 
-  constructor() { }
+  constructor(private apiService: ServerApiService) { }
 
   ngOnInit() {
+    this.apiService.getStats()
+      .subscribe(
+        (data) => {
+          this.stats = data;
+        },
+        (error) => console.log(error)
+      );
   }
 
 }
