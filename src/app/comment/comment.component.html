@@ -20,6 +20,7 @@
 
       <small>
         <span class="link" (click)="deleteComment()">Delete</span>
+        <span class="link" *ngIf="ownedByUser()" (click)="editComment()">Edit</span>
       </small>
     </div>
   </div>

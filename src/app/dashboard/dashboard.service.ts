@@ -1,12 +1,14 @@
 import { EventEmitter} from '@angular/core';
 
+import { User } from '../user/user.model';
 import { Project } from '../project/project.model';
-import { PROJECTS } from './mock-projects';
 import { Task } from '../task/task.model';
 import { Comment} from '../comment/comment.model';
+import { USER } from './mock-user';
 
 export class DashboardService {
-  private projects: Project[] = PROJECTS;
+  public user: User = USER;
+  private projects: Project[] = this.user.projects;
   projectsUpdated = new EventEmitter<Project[]>();
 
   getProjects(): Project[] {
@@ -27,7 +29,7 @@ export class DashboardService {
 
   createComment(task: Task, content: string) {
     this.getTask(task.id).comments.push(
-      new Comment(undefined, task.id, "user_name", "assets/mock/user1.jpeg", content)
+      new Comment(undefined, task.id, this.user.name, this.user.avatar, content)
     );
   }
 

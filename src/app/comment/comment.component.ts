@@ -19,6 +19,14 @@ export class CommentComponent implements OnInit {
   ngOnInit() {
   }
 
+  ownedByUser() {
+    return this.comment.user_name === this.dashboardService.user.name;
+  }
+
+  editComment() {
+
+  }
+
   deleteComment() {
     this.dashboardService.deleteComment(this.comment);
   }
