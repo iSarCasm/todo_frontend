@@ -1,7 +1,6 @@
 <div class="modal-header">
   <div>
-    <h4 class="modal-title">Add a new task</h4>
-    <small> Project: '{{ project.title }}'</small>
+    <h4 class="modal-title">Edit task</h4>
   </div>
   <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss()">
     <span aria-hidden="true">&times;</span>
@@ -15,7 +14,7 @@
         id="name" name="name"
         required maxlength="80"
         placeholder="name*"
-        [(ngModel)]="name"
+        [(ngModel)]="task.name"
         #input_name="ngModel">
     </div>
     <div class="form-group">
@@ -24,7 +23,7 @@
         maxlength="300"
         id="desc" name="desc"
         placeholder="short description"
-        [(ngModel)]="desc"
+        [(ngModel)]="task.desc"
         #input_desc="ngModel">
       </textarea>
     </div>
@@ -55,6 +54,6 @@
 <div class="modal-footer">
   <button
     class="btn btn-primary"
-    [disabled]="!taskForm.form.valid" (click)="addNewTask()">Add task</button>
+    [disabled]="!taskForm.form.valid" (click)="updateTask()">Update task</button>
   <button type="button" class="btn btn-secondary" (click)="activeModal.close()">Close</button>
 </div>

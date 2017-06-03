@@ -22,6 +22,7 @@ import { ProjectNewComponent } from './project/project-new/project-new.component
 import { TaskNewComponent } from './task/task-new/task-new.component';
 import { TaskViewComponent } from './task/task-view/task-view.component';
 import { ProjectEditComponent } from './project/project-edit/project-edit.component';
+import { TaskEditComponent } from './task/task-edit/task-edit.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { ProjectEditComponent } from './project/project-edit/project-edit.compon
     ProjectNewComponent,
     TaskNewComponent,
     TaskViewComponent,
-    ProjectEditComponent
+    ProjectEditComponent,
+    TaskEditComponent
   ],
   imports: [
     BrowserModule,
@@ -50,6 +52,7 @@ import { ProjectEditComponent } from './project/project-edit/project-edit.compon
     ProjectNewComponent,
     ProjectEditComponent,
     TaskNewComponent,
+    TaskEditComponent,
     TaskViewComponent
   ],
   bootstrap: [AppComponent]

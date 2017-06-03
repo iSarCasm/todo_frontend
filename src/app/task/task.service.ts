@@ -18,4 +18,13 @@ export class TaskService {
   formatDateToString(date: NgbDateStruct) : string {
     return date.year + "-" + date.month + "-" + date.day;
   }
+
+  formatStringToDate(date: string): NgbDateStruct {
+    if (date) {
+      let ar = date.split('-');
+      return { day: parseInt(ar[2]), month: parseInt(ar[1]), year: parseInt(ar[0]) };
+    } else {
+      return { day: undefined, month: undefined, year: undefined };
+    }
+  }
 }

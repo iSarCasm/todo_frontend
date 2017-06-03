@@ -4,6 +4,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { Task } from './task.model';
 import { TaskViewComponent } from './task-view/task-view.component';
+import { TaskEditComponent } from './task-edit/task-edit.component';
 import { DashboardService } from '../dashboard/dashboard.service';
 import { TaskService } from './task.service';
 
@@ -39,6 +40,11 @@ export class TaskComponent implements OnInit {
   viewTask() {
     const taskModalRef = this.modalService.open(TaskViewComponent);
     taskModalRef.componentInstance.task = this.task;
+  }
+
+  editTask() {
+    const taskModalRef = this.modalService.open(TaskEditComponent);
+    taskModalRef.componentInstance.task = Object.assign({}, this.task);
   }
 
   deleteTask() {

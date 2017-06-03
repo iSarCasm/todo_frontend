@@ -37,6 +37,13 @@ export class DashboardService {
     project.desc = updated_project.desc;
   }
 
+  updateTask(updated_task: Task) {
+    let task = this.getTask(updated_task.id);
+    task.name = updated_task.name;
+    task.desc = updated_task.desc;
+    task.deadline = updated_task.deadline;
+  }
+
   projectActivate(project: Project) {
     project.in_active = true;
   }
