@@ -17,7 +17,7 @@
     </div>
     <div class="col-3 text-center">
       <label class="custom-control custom-checkbox m-0">
-        <input type="checkbox" class="custom-control-input" [(ngModel)]="task.finished">
+        <input type="checkbox" class="custom-control-input" (change)="changeFinished($event)">
         <span class="custom-control-indicator"></span>
       </label>
       <p class="mb-0">

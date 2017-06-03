@@ -31,6 +31,14 @@ export class DashboardService {
     );
   }
 
+  taskFinish(task: Task) {
+    task.finished = true;
+  }
+
+  taskToProgress(task: Task) {
+    task.finished = false;
+  }
+
   deleteComment(comment: Comment) {
     let task = this.getTask(comment.task_id);
     task.comments = task.comments.filter(item => item !== comment);

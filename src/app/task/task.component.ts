@@ -28,6 +28,14 @@ export class TaskComponent implements OnInit {
     return this.taskService.prettyDate(this.task.deadline);
   }
 
+  changeFinished(e) {
+    if (e.target.checked) {
+      this.dashboardService.taskFinish(this.task);
+    } else {
+      this.dashboardService.taskToProgress(this.task);
+    }
+  }
+
   viewTask() {
     const taskModalRef = this.modalService.open(TaskViewComponent);
     taskModalRef.componentInstance.task = this.task;
