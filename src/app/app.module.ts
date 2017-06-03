@@ -44,7 +44,7 @@ import { TaskViewComponent } from './task/task-view/task-view.component';
     AppRoutingModule
   ],
   providers: [AuthService, AuthGuard, DashboardService, TaskService],
-  entryComponents: [TaskNewComponent, TaskViewComponent],
+  entryComponents: [ProjectNewComponent, TaskNewComponent, TaskViewComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

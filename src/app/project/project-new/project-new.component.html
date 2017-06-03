@@ -1,47 +1,50 @@
-<div class="container" *ngIf="isAddingProject; else open_new_project">
-  <div class="row">
-    <div class="col-12 col-md-8 push-md-2">
-      <form (ngSubmit)="addNewProject()" #projectForm="ngForm">
-        <div class="form-group">
-          <input
-            type="text" class="form-control"
-            id="title" name="title"
-            required maxlength="80"
-            placeholder="Project Title"
-            [(ngModel)]="title"
-            #input_title="ngModel">
-        </div>
-        <div class="form-group">
-          <textarea
-            type="text" class="form-control"
-            maxlength="300"
-            id="desc" name="desc"
-            placeholder="Short description (optional)"
-            [(ngModel)]="desc"
-            #input_desc="ngModel">
-        </textarea>
-        </div>
-        <div *ngIf="input_title.errors && (input_title.dirty || input_title.touched)" class="alert alert-danger p-1">
-          <div [hidden]="!input_title.errors.required">
-            Title is required
-          </div>
-          <div [hidden]="!input_title.errors.maxlength">
-            Title cannot be more than 80 characters long.
-          </div>
-        </div>
-        <div *ngIf="input_desc.errors && (input_desc.dirty || input_desc.touched)" class="alert alert-danger p-1">
-          <div [hidden]="!input_desc.errors.maxlength">
-            Description cannot be more than 300 characters long.
-          </div>
-        </div>
-        <button
-          class="btn btn-primary"
-          [disabled]="!projectForm.form.valid">Add project</button>
-        <button class="btn btn-outline-danger" (click)="cancelEditing()">Cancel</button>
-      </form>
-    </div>
+<div class="modal-header">
+  <div>
+    <h4 class="modal-title">Add a new project</h4>
   </div>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss()">
+    <span aria-hidden="true">&times;</span>
+  </button>
 </div>
-<ng-template #open_new_project>
-  <button class="btn btn-primary" (click)="editNewProject()">Add project</button>
-</ng-template>
+<div class="modal-body">
+  <form #projectForm="ngForm">
+    <div class="form-group">
+      <input
+        type="text" class="form-control"
+        id="title" name="title"
+        required maxlength="80"
+        placeholder="Project Title"
+        [(ngModel)]="title"
+        #input_title="ngModel">
+    </div>
+    <div class="form-group">
+      <textarea
+        type="text" class="form-control"
+        maxlength="300"
+        id="desc" name="desc"
+        placeholder="Short description (optional)"
+        [(ngModel)]="desc"
+        #input_desc="ngModel">
+    </textarea>
+    </div>
+    <div *ngIf="input_title.errors && (input_title.dirty || input_title.touched)" class="alert alert-danger p-1">
+      <div [hidden]="!input_title.errors.required">
+        Title is required
+      </div>
+      <div [hidden]="!input_title.errors.maxlength">
+        Title cannot be more than 80 characters long.
+      </div>
+    </div>
+    <div *ngIf="input_desc.errors && (input_desc.dirty || input_desc.touched)" class="alert alert-danger p-1">
+      <div [hidden]="!input_desc.errors.maxlength">
+        Description cannot be more than 300 characters long.
+      </div>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button
+    class="btn btn-primary"
+    [disabled]="!projectForm.form.valid" (click)="addNewProject()">Add project</button>
+  <button type="button" class="btn btn-secondary" (click)="activeModal.close()">Close</button>
+</div>
