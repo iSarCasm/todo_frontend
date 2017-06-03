@@ -25,6 +25,12 @@ export class DashboardService {
     );
   }
 
+  createComment(task: Task, content: string) {
+    this.getTask(task.id).comments.push(
+      new Comment(undefined, task.id, "user_name", "assets/mock/user1.jpeg", content)
+    );
+  }
+
   deleteComment(comment: Comment) {
     let task = this.getTask(comment.task_id);
     task.comments = task.comments.filter(item => item !== comment);

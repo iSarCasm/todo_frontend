@@ -9,7 +9,21 @@
 </div>
 <div class="modal-body">
   <app-comment *ngFor="let comment of task.comments" [comment]="comment"></app-comment>
+  <form #commentForm="ngForm">
+    <div class="form-group">
+      <label for="content">Add your comment</label>
+      <textarea
+        type="text" class="form-control"
+        id="content" name="content"
+        required
+        placeholder=""
+        [(ngModel)]="new_comment_content"
+        #input_name="ngModel">
+      </textarea>
+    </div>
+  </form>
 </div>
 <div class="modal-footer">
+  <button class="btn btn-primary" [disabled]="!commentForm.form.valid" (click)="addNewComment()">Add comment</button>
   <button type="button" class="btn btn-secondary" (click)="activeModal.close()">Close</button>
 </div>
