@@ -17,14 +17,14 @@
     </div>
     <div class="col-3 text-center">
       <label class="custom-control custom-checkbox m-0">
-        <input type="checkbox" class="custom-control-input" (change)="changeFinished($event)">
+        <input type="checkbox" class="custom-control-input" (change)="changeFinished($event)" [disabled]="shared">
         <span class="custom-control-indicator"></span>
       </label>
       <p class="mb-0">
         <small>
           <span class="link" (click)="viewTask()">comments ({{ task.comments.length }})</span>
-          <span class="link" (click)="editTask()">edit</span>
-          <span class="link" (click)="deleteTask()">delete</span>
+          <span *ngIf="!shared" class="link" (click)="editTask()">edit</span>
+          <span *ngIf="!shared" class="link" (click)="deleteTask()">delete</span>
         </small>
       </p>
     </div>

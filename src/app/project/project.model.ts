@@ -7,6 +7,7 @@ export class Project {
     public desc?: string,
     public in_active?: boolean,
     public tasks?: Task[],
+    public shared_url?: string
   ) {}
 
   getTask(id: number) {
@@ -19,5 +20,9 @@ export class Project {
 
   hasTasks() {
     return this.tasks && this.tasks.length > 0;
+  }
+
+  sharedLink(): string {
+    return '/shared/' + this.shared_url;
   }
 }

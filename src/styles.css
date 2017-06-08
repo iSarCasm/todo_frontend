@@ -19,6 +19,12 @@ span.link {
   cursor: pointer;
 }
 
+a.link {
+  color: gray;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 span.link:hover {
   text-decoration: none;
 }

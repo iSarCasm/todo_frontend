@@ -2,26 +2,37 @@
   <div class="row">
     <div class="col-12">
       <div class="card">
-        <div class="card-header">
-          <p class="mb-0">
-            <strong>
-              {{ project.title }}
-            </strong>
-          </p>
-          <p class="mb-0 desc">
-            {{ project.desc }}
-          </p>
+        <div class="card-header row justify-content-between ml-0 mr-0">
+          <div>
+            <p class="mb-0">
+              <strong>
+                {{ project.title }}
+              </strong>
+            </p>
+            <p class="mb-0 desc">
+              {{ project.desc }}
+            </p>
+          </div>
+          <div class="share-controls pt-3 pr-2">
+            <div *ngIf="!shared">
+              <span *ngIf="!project.shared_url; else makePrivate" class="link" (click)="share()">Share</span>
+              <ng-template #makePrivate>
+                <a class="link" [routerLink]="project.sharedLink()">Public Link</a>
+                <span class="link" (click)="private()">Make Private</span>
+              </ng-template>
+            </div>
+          </div>
         </div>
         <div class="card-block">
           <div *ngIf="project.hasTasks(); then task_list; else no_tasks"></div>
-          <app-task #task_list *ngFor="let task of project.tasks" [task]="task"></app-task>
+          <app-task #task_list *ngFor="let task of project.tasks" [task]="task" [shared]="shared"></app-task>
           <ng-template #no_tasks>
             <p class="p-2 m-0">
               <small><em>No tasks yet.</em></small>
             </p>
           </ng-template>
 
-          <div class="controls">
+          <div *ngIf="!shared" class="controls">
             <button class="btn btn-sm btn-outline-success" (click)="newTask()">Add new task</button>
             <button class="btn btn-sm btn-secondary" (click)="editProject()">Edit</button>
 

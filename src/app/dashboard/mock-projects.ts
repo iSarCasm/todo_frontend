@@ -22,7 +22,7 @@ export const PROJECTS: Project[] = [
       new Task(
         3, 1, 'Checkout newest Ruby\\Rails digest', false, 3, 'dou.ua', '2017-06-23'
       ),
-    ]
+    ], "sd9g8d90gv"
   ),
   new Project(
     2, 'Angular', 'Angular is required component of Ruby/JS stack.', true,

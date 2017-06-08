@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
@@ -14,13 +15,24 @@ import { ProjectEditComponent } from './project-edit/project-edit.component';
 })
 export class ProjectComponent implements OnInit {
   @Input() project: Project;
+  shared: boolean = false;
 
   constructor(
     private dashboardService: DashboardService,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private router: ActivatedRoute
   ) { }
 
   ngOnInit() {
+    this.router.params.subscribe(params => {
+      let url = params['url']
+      if (url) {
+        this.project = this.dashboardService.getSharedProject(url);
+        if (this.project) {
+          this.shared = true;
+        }
+      }
+    });
   }
 
   newTask() {
@@ -34,6 +46,14 @@ export class ProjectComponent implements OnInit {
 
   activate() {
     this.dashboardService.projectActivate(this.project);
+  }
+
+  share() {
+    this.dashboardService.projectShare(this.project);
+  }
+
+  private() {
+    this.dashboardService.projectPrivate(this.project);
   }
 
   editProject() {

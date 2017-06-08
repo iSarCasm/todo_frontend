@@ -21,6 +21,13 @@ export class DashboardService {
     return this.projects;
   }
 
+  getSharedProject(url: string): Project {
+    for(let project of this.projects) {
+      if (project.shared_url === url)
+        return project;
+    }
+  }
+
   createProject(title: string, desc: string) {
     this.projects.unshift(
       new Project(undefined, title, desc)
@@ -43,6 +50,16 @@ export class DashboardService {
     let project = this.getProject(updated_project.id);
     project.title = updated_project.title;
     project.desc = updated_project.desc;
+  }
+
+  projectPrivate(updated_project: Project) {
+    let project = this.getProject(updated_project.id);
+    project.shared_url = undefined;
+  }
+
+  projectShare(updated_project: Project) {
+    let project = this.getProject(updated_project.id);
+    project.shared_url = 'sdjg9sd09jddiof9';
   }
 
   updateTask(updated_task: Task) {

@@ -15,6 +15,7 @@ import { TaskService } from './task.service';
 })
 export class TaskComponent implements OnInit {
   @Input() task: Task;
+  @Input() shared: boolean = false;
 
   constructor(
     private modalService: NgbModal,
