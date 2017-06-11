@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 
 import { AuthService } from './auth.service';
 
@@ -9,9 +8,11 @@ import { AuthService } from './auth.service';
   styleUrls: ['./auth.component.css']
 })
 export class AuthComponent implements OnInit {
+  login_email: string;
+  login_password: string;
+  error: string;
 
   constructor(
-    private router: Router,
     private authService: AuthService
   ) { }
 
@@ -19,7 +20,13 @@ export class AuthComponent implements OnInit {
   }
 
   signIn() {
-    this.authService.signIn();
-    this.router.navigate(['/dashboard']);
+    this.error = undefined;
+    this.authService.signIn(this.login_email, this.login_password)
+      .subscribe(
+        (data) => {},
+        (error) => {
+          this.error = error;
+        }
+      );
   }
 }

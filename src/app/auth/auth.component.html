@@ -23,3 +23,18 @@
     </button>
   </div>
 </div>
+
+<div *ngIf="error" class="alert alert-danger mt-3">
+  <p><strong>Error!</strong></p>
+  <p>
+    {{ error }}
+  </p>
+</div>
+
+<div class="alert alert-warning mt-3">
+  <strong>Dummy user:</strong>
+  <p>
+    Email: x@x.com <br>
+    Password: 12341234
+  </p>
+</div>
