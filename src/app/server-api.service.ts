@@ -2,9 +2,14 @@ import { Injectable } from '@angular/core';
 import { Headers, Http, Response, RequestOptions } from '@angular/http';
 import 'rxjs/Rx';
 
+import { Angular2TokenService } from 'angular2-token';
+
 @Injectable()
 export class ServerApiService {
-  constructor(private http: Http) {}
+  constructor(
+    private http: Http,
+    private tokenService: Angular2TokenService
+  ) {}
 
   site: string = "https://isarcasm-todo.herokuapp.com/api";
   path = {
@@ -24,11 +29,10 @@ export class ServerApiService {
   }
 
   signIn(login: string, password: string) {
-    return this.http.post(this.path['sign_in'], {email: login, password: password}, new RequestOptions({ headers: new Headers({'accept': 'version=1'}) }))
-      .map(
-        (response) => {
-          return response.json().data
-        }
-      );
+    // return this.http.post(this.path['sign_in'], {email: login, password: password}, this.options);
+    return this.tokenService.signIn({
+      email: login,
+      password: password
+    });
   }
 }

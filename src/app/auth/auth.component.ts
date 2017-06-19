@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { AuthService } from './auth.service';
 
@@ -13,6 +14,7 @@ export class AuthComponent implements OnInit {
   error: string;
 
   constructor(
+    private router: Router,
     private authService: AuthService
   ) { }
 
@@ -23,7 +25,9 @@ export class AuthComponent implements OnInit {
     this.error = undefined;
     this.authService.signIn(this.login_email, this.login_password)
       .subscribe(
-        (data) => {},
+        (data) => {
+          this.router.navigate(['/dashboard']);
+        },
         (error) => {
           this.error = error;
         }

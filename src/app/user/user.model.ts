@@ -6,6 +6,8 @@ export class User {
     public name: string,
     public email: string,
     public avatar: string,
-    public projects: Project[]
+    public projects: Project[],
+    public client?: string,
+    public token?: string
   ) {}
 }

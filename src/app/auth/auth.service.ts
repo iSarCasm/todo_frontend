@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
+import { Response, Headers } from '@angular/http';
 
 import { ServerApiService } from '../server-api.service';
 import { DashboardService } from '../dashboard/dashboard.service';
@@ -8,7 +8,6 @@ import { User } from '../user/user.model';
 @Injectable()
 export class AuthService {
   constructor(
-    private router: Router,
     private serverApi: ServerApiService,
     private dashboard: DashboardService
   ) {}
@@ -19,10 +18,16 @@ export class AuthService {
     let observable = this.serverApi.signIn(login, password);
     observable
       .subscribe(
-        (data) => {
+        (response) => {
+          let data = response.json().data;
+          let headers = response.headers;
+          console.log(headers);
+          let user = new User(data.uid, data.name, data.email, data.avatar['url'], []);
+          user.client = headers['client'];
+          user.token = headers['token'];
+          console.log(user);
           this.signedIn = true;
-          this.dashboard.user = new User(data.uid, data.name, data.email, data.avatar['url'], []);
-          this.router.navigate(['/dashboard']);
+          this.dashboard.user = user;
         }
       );
     return observable;

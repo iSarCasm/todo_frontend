@@ -2,8 +2,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { RouterModule } from '@angular/router';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { Angular2TokenService } from 'angular2-token';
 
 import { ServerApiService } from './server-api.service';
 import { AppRoutingModule } from './app-routing.module';
@@ -47,10 +49,11 @@ import { CommentEditComponent } from './comment/comment-edit/comment-edit.compon
     BrowserModule,
     FormsModule,
     HttpModule,
+    RouterModule,
     NgbModule.forRoot(),
     AppRoutingModule
   ],
-  providers: [ServerApiService, AuthService, AuthGuard, DashboardService, TaskService],
+  providers: [Angular2TokenService, ServerApiService, AuthService, AuthGuard, DashboardService, TaskService],
   entryComponents: [
     ProjectNewComponent,
     ProjectEditComponent,
