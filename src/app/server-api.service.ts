@@ -28,11 +28,20 @@ export class ServerApiService {
       );
   }
 
-  signIn(login: string, password: string) {
-    // return this.http.post(this.path['sign_in'], {email: login, password: password}, this.options);
+  signIn(email: string, password: string) {
+    // return this.http.post(this.path['sign_in'], {email: email, password: password}, this.options);
     return this.tokenService.signIn({
-      email: login,
+      email: email,
       password: password
+    });
+  }
+
+  signUp(email: string, password: string, password_confirmation: string, name: string) {
+    return this.tokenService.registerAccount({
+      email: email,
+      password: password,
+      passwordConfirmation: password_confirmation,
+      name: name
     });
   }
 }

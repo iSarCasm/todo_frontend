@@ -27,6 +27,7 @@ import { TaskViewComponent } from './task/task-view/task-view.component';
 import { ProjectEditComponent } from './project/project-edit/project-edit.component';
 import { TaskEditComponent } from './task/task-edit/task-edit.component';
 import { CommentEditComponent } from './comment/comment-edit/comment-edit.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { CommentEditComponent } from './comment/comment-edit/comment-edit.compon
     TaskViewComponent,
     ProjectEditComponent,
     TaskEditComponent,
-    CommentEditComponent
+    CommentEditComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,

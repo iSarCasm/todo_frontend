@@ -13,6 +13,7 @@ export class AppComponent {
       apiBase: 'https://isarcasm-todo.herokuapp.com',
       apiPath: 'api/auth',
       signInPath: 'sign_in.json',
+      registerAccountPath: '',
       globalOptions: {
         headers: {
           'accept': 'version=1',

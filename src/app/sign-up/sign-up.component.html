@@ -1,0 +1,51 @@
+<div class="card mt-3">
+  <div class="card-block">
+    <form (ngSubmit)="signUp()">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          class="form-control"
+          [(ngModel)]="email">
+      </div>
+      <div class="form-group">
+        <label for="email">Name</label>
+        <input
+          type="text"
+          id="name"
+          class="form-control"
+          [(ngModel)]="name">
+      </div>
+      <div class="form-group">
+        <label for="email">Password</label>
+        <input
+          type="password"
+          id="password"
+          class="form-control"
+          [(ngModel)]="password">
+      </div>
+      <div class="form-group">
+        <label for="email">Password confirmation</label>
+        <input
+          type="password"
+          id="password_confirmation"
+          class="form-control"
+          [(ngModel)]="password_confirmation">
+      </div>
+      <button
+        class="btn btn-primary"
+        type="submit"
+        (click)="signUp()">
+        Sign Up
+      </button>
+    </form>
+  </div>
+</div>
+
+<div *ngIf="error" class="alert alert-danger mt-3">
+  <p><strong>Error!</strong></p>
+  <p>
+    {{ error }}
+  </p>
+</div>
