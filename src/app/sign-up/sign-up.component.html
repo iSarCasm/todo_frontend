@@ -1,3 +1,4 @@
+<h1 class="mt-5">Sign up now!</h1>
 <div class="card mt-3">
   <div class="card-block">
     <form (ngSubmit)="signUp()">
@@ -6,32 +7,76 @@
         <input
           type="email"
           id="email"
+          name="email"
           class="form-control"
-          [(ngModel)]="email">
+          #userEmail="ngModel"
+          [(ngModel)]="email"
+          required
+          email>
+        <div [hidden]="userEmail.valid || userEmail.pristine" class="alert alert-danger p-1">
+          Email is incorrect.
+        </div>
       </div>
       <div class="form-group">
         <label for="email">Name</label>
         <input
           type="text"
           id="name"
+          name="name"
           class="form-control"
+          required
+          #userName="ngModel"
           [(ngModel)]="name">
+        <div [hidden]="userName.valid || userName.pristine" class="alert alert-danger p-1">
+          Name is required.
+        </div>
       </div>
       <div class="form-group">
         <label for="email">Password</label>
         <input
           type="password"
           id="password"
+          name="password"
           class="form-control"
+          required
+          minlength="8"
+          maxlength="16"
+          validateEqual="password_confirmation" reverse="true"
+          #userPassword="ngModel"
           [(ngModel)]="password">
+        <div *ngIf="userPassword.errors && !userPassword.pristine" class="alert alert-danger p-1">
+          <div [hidden]="!userPassword.errors.required">
+            Password is required.
+          </div>
+          <div [hidden]="!userPassword.errors.minlength">
+            Password must be at least 8 characters long.
+          </div>
+          <div [hidden]="!userPassword.errors.maxlength">
+            Password cannot be more than 16 characters.
+          </div>
+        </div>
       </div>
       <div class="form-group">
         <label for="email">Password confirmation</label>
         <input
           type="password"
           id="password_confirmation"
+          name="password_confirmation"
           class="form-control"
+          required
+          minlength="8"
+          maxlength="16"
+          validateEqual="password"
+          #userPasswordConfirmation="ngModel"
           [(ngModel)]="password_confirmation">
+        <div *ngIf="userPasswordConfirmation.errors && !userPasswordConfirmation.pristine" class="alert alert-danger p-1">
+          <div [hidden]="!userPasswordConfirmation.errors.required">
+            Confirmation password is required.
+          </div>
+          <div [hidden]="userPasswordConfirmation.errors.validateEqual">
+            Passwords dont match!
+          </div>
+        </div>
       </div>
       <button
         class="btn btn-primary"

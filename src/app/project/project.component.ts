@@ -26,12 +26,12 @@ export class ProjectComponent implements OnInit {
   ngOnInit() {
     this.router.params.subscribe(params => {
       let url = params['url']
-      if (url) {
-        this.project = this.dashboardService.getSharedProject(url);
-        if (this.project) {
-          this.shared = true;
-        }
+
+      this.project = this.dashboardService.getSharedProject(url);
+      if (this.project) {
+        this.shared = true;
       }
+
     });
   }
 

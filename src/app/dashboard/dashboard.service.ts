@@ -22,10 +22,12 @@ export class DashboardService {
   }
 
   getSharedProject(url: string): Project {
-    for(let project of this.projects) {
-      if (project.shared_url === url)
-        return project;
-    }
+    this.queryUser();
+    return this.projects[0];
+    // for(let project of this.projects) {
+    //   if (project.shared_url === url)
+    //     return project;
+    // }
   }
 
   createProject(title: string, desc: string) {

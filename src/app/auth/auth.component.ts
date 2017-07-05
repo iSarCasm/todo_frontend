@@ -29,7 +29,7 @@ export class AuthComponent implements OnInit {
           this.router.navigate(['/dashboard']);
         },
         (error) => {
-          this.error = error;
+          this.error = JSON.parse(error._body)["errors"];
         }
       );
   }

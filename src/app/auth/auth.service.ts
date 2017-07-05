@@ -28,6 +28,9 @@ export class AuthService {
           console.log(user);
           this.signedIn = true;
           this.dashboard.user = user;
+        },
+        (error) => {
+          return observable;
         }
       );
     return observable;

@@ -28,6 +28,7 @@ import { ProjectEditComponent } from './project/project-edit/project-edit.compon
 import { TaskEditComponent } from './task/task-edit/task-edit.component';
 import { CommentEditComponent } from './comment/comment-edit/comment-edit.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { EqualValidator } from './sign-up/equal-validator.directive';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     ProjectEditComponent,
     TaskEditComponent,
     CommentEditComponent,
-    SignUpComponent
+    SignUpComponent,
+    EqualValidator
   ],
   imports: [
     BrowserModule,
